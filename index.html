@@ -29,7 +29,8 @@
     socket.emit("login", {
       // name: "ungmo2",
       name: "guest",
-      userid: ""
+      userid: "",
+      wallet: 1000000,
     });
 
     // 서버로부터의 메시지가 수신되면
@@ -45,9 +46,9 @@
 
     socket.on("betting", function(data){
       if(data.msg == "no"){
-        $("#chatLogs").append("<div><strong>" + data.from.name + " : </strong>" + "이 입찰에 응하지 않았습니다" + "</div>");
+        $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하지 않았습니다" + "</div>");
       }
-      else $("#chatLogs").append("<div><strong>" + data.from.name + " : </strong>" + "이 입찰에 응하였습니다!" + "</div>");
+      else $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하였습니다!" + "</div>");
     });
 
     socket.on("start", function(data){
