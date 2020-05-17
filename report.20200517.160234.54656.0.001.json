@@ -1,0 +1,481 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200517.160234.54656.0.001.json",
+    "dumpEventTime": "2020-05-17T16:02:34Z",
+    "dumpEventTimeStamp": "1589698954670",
+    "processId": 54656,
+    "cwd": "C:\\Users\\suhwan\\Desktop\\socketio-chat",
+    "commandLine": [
+      "node",
+      "server"
+    ],
+    "nodejsVersion": "v12.14.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.14.1",
+      "v8": "7.7.299.13-node.16",
+      "uv": "1.33.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.14.1/node-v12.14.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.14.1/node-v12.14.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.14.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.18362",
+    "osVersion": "Windows 10 Home",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 1480046,
+        "nice": 0,
+        "sys": 2294828,
+        "idle": 18790906,
+        "irq": 241781
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 1219656,
+        "nice": 0,
+        "sys": 1752375,
+        "idle": 19593406,
+        "irq": 29859
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 2062265,
+        "nice": 0,
+        "sys": 3715546,
+        "idle": 16787625,
+        "irq": 61156
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 1706187,
+        "nice": 0,
+        "sys": 3567890,
+        "idle": 17291359,
+        "irq": 43906
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 1967937,
+        "nice": 0,
+        "sys": 2670234,
+        "idle": 17927265,
+        "irq": 30734
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 1585093,
+        "nice": 0,
+        "sys": 3095500,
+        "idle": 17884828,
+        "irq": 21250
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 1955500,
+        "nice": 0,
+        "sys": 3328843,
+        "idle": 17281078,
+        "irq": 30609
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 1705765,
+        "nice": 0,
+        "sys": 2699578,
+        "idle": 18160078,
+        "irq": 15265
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "74:e5:f9:5e:12:d0",
+        "address": "fe80::313f:41c1:9405:a6e1",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 7
+      },
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "74:e5:f9:5e:12:d0",
+        "address": "192.168.198.232",
+        "netmask": "255.255.248.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "DESKTOP-BU6L7GN"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff6d1351759",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
+    },
+    {
+      "pc": "0x00007ff6d1355b7c",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28316"
+    },
+    {
+      "pc": "0x00007ff6d1354b38",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24152"
+    },
+    {
+      "pc": "0x00007ff6d144433b",
+      "symbol": "v8::base::CPU::has_sse+37723"
+    },
+    {
+      "pc": "0x00007ff6d1c48c5e",
+      "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
+    },
+    {
+      "pc": "0x00007ff6d1c30ca1",
+      "symbol": "v8::SharedArrayBuffer::Externalize+833"
+    },
+    {
+      "pc": "0x00007ff6d1afe56c",
+      "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
+    },
+    {
+      "pc": "0x00007ff6d1b09910",
+      "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
+    },
+    {
+      "pc": "0x00007ff6d1b06444",
+      "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3204"
+    },
+    {
+      "pc": "0x00007ff6d1afbcd3",
+      "symbol": "v8::internal::Heap::CollectGarbage+1283"
+    },
+    {
+      "pc": "0x00007ff6d1afa4a4",
+      "symbol": "v8::internal::Heap::AddRetainedMap+2356"
+    },
+    {
+      "pc": "0x00007ff6d1b1b775",
+      "symbol": "v8::internal::Factory::NewFillerObject+53"
+    },
+    {
+      "pc": "0x00007ff6d1887a49",
+      "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+4057"
+    },
+    {
+      "pc": "0x00007ff6d207463d",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+567949"
+    },
+    {
+      "pc": "0x00000082e98d01a8",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2185809920,
+    "totalCommittedMemory": 2185809920,
+    "usedMemory": 2169577008,
+    "availableMemory": 25532080,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 17825792,
+        "committedMemory": 17825792,
+        "capacity": 8903648,
+        "used": 5184848,
+        "available": 3718800
+      },
+      "old_space": {
+        "memorySize": 1883090944,
+        "committedMemory": 1883090944,
+        "capacity": 1881126704,
+        "used": 1880452024,
+        "available": 674680
+      },
+      "code_space": {
+        "memorySize": 425984,
+        "committedMemory": 425984,
+        "capacity": 189120,
+        "used": 189120,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 790528,
+        "committedMemory": 790528,
+        "capacity": 362640,
+        "used": 362640,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 283365376,
+        "committedMemory": 283365376,
+        "capacity": 283352528,
+        "used": 283352528,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3552,
+        "used": 3552,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 8903648,
+        "used": 0,
+        "available": 8903648
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 120.875,
+    "kernelCpuSeconds": 3.109,
+    "cpuConsumptionPercent": 151.2,
+    "maxRss": 2434281472,
+    "pageFaults": {
+      "IORequired": 1455218,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 205,
+      "writes": 1
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=::": "::\\",
+    "=C:": "C:\\Users\\suhwan\\Desktop\\socketio-chat",
+    "=ExitCode": "00000001",
+    "add_path": "C:\\cmder",
+    "aliases": "C:\\cmder\\config\\user_aliases.cmd",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "ANSICON": "107x1000 (107x23)",
+    "ANSICON_DEF": "7",
+    "APPDATA": "C:\\Users\\suhwan\\AppData\\Roaming",
+    "architecture": "64",
+    "architecture_bits": "64",
+    "ccall": "call C:\\cmder\\vendor\\bin\\cexec.cmd",
+    "cexec": "C:\\cmder\\vendor\\bin\\cexec.cmd",
+    "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
+    "ChocolateyLastPathUpdate": "132335979936246970",
+    "CLASSPATH": "C:\\Program Files\\Java\\jdk\\lib",
+    "CMDER_ALIASES": "1",
+    "CMDER_CLINK": "1",
+    "CMDER_CONFIGURED": "1",
+    "CMDER_INIT_END": "11:24:28.52",
+    "CMDER_INIT_START": "11:24:16.01",
+    "CMDER_ROOT": "C:\\cmder",
+    "CMDER_SHELL": "cmd",
+    "CMDER_USER_FLAGS": " ",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "DESKTOP-BU6L7GN",
+    "ComSpec": "C:\\WINDOWS\\system32\\cmd.exe",
+    "ConEmuANSI": "ON",
+    "ConEmuAnsiLog": "",
+    "ConEmuArgs": "/Icon \"C:\\cmder\\icons\\cmder.ico\" /Title Cmder",
+    "ConEmuArgs2": "",
+    "ConEmuBackHWND": "0x0015070A",
+    "ConEmuBaseDir": "C:\\cmder\\vendor\\conemu-maximus5\\ConEmu",
+    "ConEmuBaseDirShort": "C:\\cmder\\vendor\\conemu-maximus5\\ConEmu",
+    "ConEmuBuild": "191012",
+    "ConEmuCfgDir": "C:\\cmder\\vendor\\conemu-maximus5",
+    "ConEmuConfig": "",
+    "ConEmuDir": "C:\\cmder\\vendor\\conemu-maximus5",
+    "ConEmuDrawHWND": "0x0003090E",
+    "ConEmuDrive": "C:",
+    "ConEmuHooks": "Enabled",
+    "ConEmuHWND": "0x000C074E",
+    "ConEmuPalette": "Monokai",
+    "ConEmuPID": "17696",
+    "ConEmuServerPID": "25744",
+    "ConEmuTask": "{cmd::Cmder}",
+    "ConEmuWorkDir": "C:\\cmder",
+    "ConEmuWorkDrive": "C:",
+    "configsetroot": "C:\\WINDOWS\\ConfigSetRoot",
+    "debug_output": "0",
+    "depth": "1",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "fast_init": "0",
+    "feFlagName": " ",
+    "find_query": "C:\\\\cmder",
+    "found": "1",
+    "git_executable": "C:\\Program Files\\Git\\cmd\\git.exe",
+    "GIT_INSTALL_ROOT": "C:\\cmder\\vendor\\git-for-windows",
+    "git_locale": "\"C:\\Program Files\\Git\\usr\\bin\\locale.exe\"",
+    "GIT_VERSION_USER": "2.23.0.windows.1",
+    "GIT_VERSION_VENDORED": "2.24.1.windows.2",
+    "HOME": "C:\\Users\\suhwan",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\suhwan",
+    "JAVA_HOME": "C:\\Program Files\\Java\\jdk",
+    "LANG": "ko_KR.UTF-8",
+    "lib_base": "call \"C:\\cmder\\vendor\\lib\\lib_base.cmd\"",
+    "lib_console": "call \"C:\\cmder\\vendor\\lib\\lib_console.cmd\"",
+    "lib_git": "call \"C:\\cmder\\vendor\\lib\\lib_git.cmd\"",
+    "lib_path": "call \"C:\\cmder\\vendor\\lib\\lib_path.cmd\"",
+    "lib_profile": "call \"C:\\cmder\\vendor\\lib\\lib_profile.cmd\"",
+    "LOCALAPPDATA": "C:\\Users\\suhwan\\AppData\\Local",
+    "LOGONSERVER": "\\\\DESKTOP-BU6L7GN",
+    "max_depth": "1",
+    "nix_tools": "1",
+    "NUMBER_OF_PROCESSORS": "8",
+    "OLD_PATH": "C:\\cmder\\bin;C:\\cmder\\vendor\\bin;C:\\cmder\\vendor\\conemu-maximus5\\ConEmu\\Scripts;C:\\cmder\\vendor\\conemu-maximus5;C:\\cmder\\vendor\\conemu-maximus5\\ConEmu;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\WiFi\\bin\\;C:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk\\bin;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files\\Android\\Android Studio\\jre\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\MinGW\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Users\\suhwan\\anaconda3;C:\\Users\\suhwan\\anaconda3\\Library\\mingw-w64\\bin;C:\\Users\\suhwan\\anaconda3\\Library\\usr\\bin;C:\\Users\\suhwan\\anaconda3\\Library\\bin;C:\\Users\\suhwan\\anaconda3\\Scripts;C:\\Users\\suhwan\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\suhwan\\AppData\\Local\\atom\\bin;C:\\Users\\suhwan\\AppData\\Roaming\\npm;C:\\Users\\suhwan\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\JetBrains\\PyCharm Community Edition 2020.1\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\cmder;C:\\cmder\\vendor\\git-for-windows\\cmd;C:\\cmder\\vendor\\git-for-windows\\mingw64\\bin;C:\\cmder\\vendor\\git-for-windows\\usr\\bin",
+    "OneDrive": "C:\\Users\\suhwan\\OneDrive",
+    "OneDriveConsumer": "C:\\Users\\suhwan\\OneDrive",
+    "OS": "Windows_NT",
+    "Path": "C:\\cmder\\bin;C:\\cmder\\vendor\\bin;C:\\cmder\\vendor\\conemu-maximus5\\ConEmu\\Scripts;C:\\cmder\\vendor\\conemu-maximus5;C:\\cmder\\vendor\\conemu-maximus5\\ConEmu;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\WiFi\\bin\\;C:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk\\bin;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files\\Android\\Android Studio\\jre\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\MinGW\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Users\\suhwan\\anaconda3;C:\\Users\\suhwan\\anaconda3\\Library\\mingw-w64\\bin;C:\\Users\\suhwan\\anaconda3\\Library\\usr\\bin;C:\\Users\\suhwan\\anaconda3\\Library\\bin;C:\\Users\\suhwan\\anaconda3\\Scripts;C:\\Users\\suhwan\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\suhwan\\AppData\\Local\\atom\\bin;C:\\Users\\suhwan\\AppData\\Roaming\\npm;C:\\Users\\suhwan\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\JetBrains\\PyCharm Community Edition 2020.1\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\cmder;C:\\cmder\\vendor\\git-for-windows\\cmd;C:\\cmder\\vendor\\git-for-windows\\mingw64\\bin;C:\\cmder\\vendor\\git-for-windows\\usr\\bin",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC",
+    "path_position": "append",
+    "PLINK_PROTOCOL": "ssh",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "8e0a",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "C\bL\bI\bN\bK\b \b$P$G",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "PyCharm Community Edition": "C:\\Program Files\\JetBrains\\PyCharm Community Edition 2020.1\\bin;",
+    "SESSIONNAME": "Console",
+    "SVN_SSH": "C:\\\\Program Files\\\\Git\\\\bin\\\\ssh.exe",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\suhwan\\AppData\\Local\\Temp",
+    "TERM": "cygwin",
+    "time_init": "0",
+    "TMP": "C:\\Users\\suhwan\\AppData\\Local\\Temp",
+    "USERDOMAIN": "DESKTOP-BU6L7GN",
+    "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-BU6L7GN",
+    "USERNAME": "suhwan",
+    "USERPROFILE": "C:\\Users\\suhwan",
+    "user_aliases": "C:\\cmder\\config\\user_aliases.cmd",
+    "USER_BUILD": "windows.1",
+    "USER_MAJOR": "2",
+    "USER_MINOR": "23",
+    "USER_PATCH": "0",
+    "VENDORED_BUILD": "windows.2",
+    "VENDORED_MAJOR": "2",
+    "VENDORED_MINOR": "24",
+    "VENDORED_PATCH": "1",
+    "verbose_output": "0",
+    "VS140COMNTOOLS": "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\",
+    "windir": "C:\\WINDOWS"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+    "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+    "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+    "C:\\WINDOWS\\System32\\WS2_32.dll",
+    "C:\\WINDOWS\\System32\\RPCRT4.dll",
+    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+    "C:\\WINDOWS\\System32\\msvcrt.dll",
+    "C:\\WINDOWS\\System32\\sechost.dll",
+    "C:\\WINDOWS\\System32\\USER32.dll",
+    "C:\\WINDOWS\\System32\\win32u.dll",
+    "C:\\WINDOWS\\System32\\GDI32.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+    "C:\\WINDOWS\\System32\\gdi32full.dll",
+    "C:\\WINDOWS\\System32\\ucrtbase.dll",
+    "C:\\WINDOWS\\System32\\msvcp_win.dll",
+    "C:\\WINDOWS\\System32\\PSAPI.DLL",
+    "C:\\WINDOWS\\System32\\CRYPT32.dll",
+    "C:\\WINDOWS\\System32\\MSASN1.dll",
+    "C:\\WINDOWS\\System32\\bcrypt.dll",
+    "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+    "C:\\WINDOWS\\System32\\profapi.dll",
+    "C:\\WINDOWS\\SYSTEM32\\winmmbase.dll",
+    "C:\\WINDOWS\\System32\\cfgmgr32.dll",
+    "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+    "C:\\WINDOWS\\System32\\IMM32.DLL",
+    "C:\\cmder\\vendor\\conemu-maximus5\\ConEmu\\ConEmuHk64.dll",
+    "C:\\WINDOWS\\System32\\powrprof.dll",
+    "C:\\WINDOWS\\System32\\UMPDC.dll",
+    "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\WINDOWS\\system32\\uxtheme.dll",
+    "C:\\WINDOWS\\System32\\combase.dll",
+    "C:\\WINDOWS\\system32\\mswsock.dll",
+    "C:\\WINDOWS\\System32\\kernel.appcore.dll",
+    "C:\\WINDOWS\\System32\\NSI.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\DNSAPI.dll",
+    "C:\\WINDOWS\\system32\\napinsp.dll",
+    "C:\\WINDOWS\\system32\\pnrpnsp.dll",
+    "C:\\WINDOWS\\System32\\winrnr.dll",
+    "C:\\WINDOWS\\system32\\NLAapi.dll",
+    "C:\\WINDOWS\\system32\\wshbth.dll"
+  ]
+}
