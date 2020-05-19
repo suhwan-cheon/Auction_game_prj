@@ -58,6 +58,7 @@ io.on('connection', function(socket) {
     data.name += user_count;
     data.userid += user_count;
     user_count++;
+
     console.log('Client logged-in:\n name:' + data.name + '\n userid: ' + data.userid);
 
     // socket에 클라이언트 정보를 저장한다
@@ -82,10 +83,12 @@ io.on('connection', function(socket) {
       from: {
         name: socket.name,
         userid: socket.userid,
-        wallet: socket.wallet
+        wallet: socket.wallet,
       },
       msg: data.msg
     };
+    //경매 시 chat
+    if(data.msg == "no" || data.msg == "yes"){
     //경매에 응한경우
     if(data.msg != "no") {
       raise_name_list.push(msg);
@@ -98,6 +101,7 @@ io.on('connection', function(socket) {
       if(raise_count == 1){
         io.emit('start', raise_name_list[0].from.name + " 참여자가 낙찰받았습니다!");
         raise_name_list[0].from.wallet -= current_price;
+        raise_name_list[0].from.win_count++;
         io.emit('start', "현재 잔여 금액 : " + raise_name_list[0].from.wallet);
         next_game();
       }
@@ -107,7 +111,10 @@ io.on('connection', function(socket) {
       else upper2_cost();
       raise_count = 0;
     }
+  }
+    else io.emit('chat', msg);
   });
+
 // force client disconnect from server
 socket.on('forceDisconnect', function() {
   socket.disconnect();
