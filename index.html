@@ -5,22 +5,92 @@
   <title>Auction Game</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <style>
+     .header{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            min-width: 900px;
+            margin: 0 auto;
+            height: 100%;
+            background-color: #7ebdb4;
+        }
     #grid{
       display: grid;
       grid-template-columns: auto 350px;
       grid-template-rows: 1fr auto 300px 1fr;
     }
-    #grid .top-banner{
-      grid-column: 1/3;
-      grid-row: 1/2;
+    .bingo_table td {
+      padding: 13px 10px;
+      border: 1px solid #000;
+    }
+    .bingo_table{
+      width: 300px;
+      height: 300px;
+    }
+    .top-banner{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            min-width: 900px;
+            margin: 0 auto;
+            height: 100%;
+            background-color: #EAEAEA;
+    }
+    .main{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            min-width: 900px;
+            margin: 0 auto;
+            height: 100%;
+            background-color: #FFFFFF;
+        }
+    .table
+    {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+            width: 270px;
+            height: 320px;
+            background-color: #7ebdb4;
+    }
+    .plyers
+    {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 0 auto;
+            height: 300px;
+            background-color: #FFFFFF;
+    }
+    .tr_1
+    {
+      height: 240px;
+    }
+    .tr_2
+    {
+      height:15px;
+      font-size: 12px;
+      text-align: center;
+    }
+    .tr_3
+    {
+      height:27px;
+      font-size: 14px;
+      text-align: center;
     }
     #grid .auction-item-picture{
       grid-column: 1/2;
       grid-row: 2/3;
-    }
-    #grid .chatbox{
-      grid-column: 2/3;
-      grid-row: 2/4;
     }
     #grid .user-state{
       grid-column: 1/2;
@@ -34,16 +104,61 @@
   </style>
 </head>
 <body>
-  <div id="grid" >
+  <header class="header" >
     <div class="top-banner">
-      <h2>일반 사이트들처럼 꾸미기 (게임 이름과 함께 색칠?, 아이콘도 넣기)</h2>
+      <div class="icon" style = padding-top:12px>
+        <p><img src = 'https://ifh.cc/g/RXaWDJ.webp' width="50px" heigt="50px"></p>
+      </div>
+      <div class="auction_game_banner" style=padding-right:30px>
+        <h1>경매 게임</h1>
+      </div>
+      <div class="icon" style = padding-top:12px>
+        <p><img src = 'https://ifh.cc/g/qlMq7F.webp' width="50px" heigt="50px"></p>
+      </div>
+    </div>
+  </header>
+  </div>
+  <div class = "main" style=padding-top:50px>
+    <div class="bingo">
+      <table class = "bingo_table">
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
     <div class="auction-item-picture">
-      <h3>경매를 상징하는 그림이나, 현재 경매에 나온 물건 넣기</h3>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class=tr_1>
+              <img src='https://ifh.cc/g/SRrJcv.png' border='0'>
+            </td>
+          </tr>
+          <tr>
+            <td class=tr_2>(경매물품)</td>
+          </tr>
+          <tr>
+            <td class=tr_3>현재가:(현재가) 호가:(호가)</td>
+          </tr>
+        </tbody>
+       </table>
     </div>
     <div class="chatbox">  <!-- class container -->
-      <h3>Chat</h3>
-      <div id="chatLogs" style="overflow:auto; height:500px;"></div>
+      <div id="chatLogs" style="overflow:auto; height:260px; border:1px;"></div>
       <form class="form-inline" style="margin-top:10px;">
         <div class="form-group">
           <label for="msgForm">Message: </label>
@@ -52,9 +167,42 @@
         <button type="submit" class="btn btn-primary">Send</button>
       </form>
     </div>
-    <div class="user-state">
-      <h3>유저들마다 현 상황 보여주기</h3>
-    </div>
+  </div>
+  <div class="plyers">
+    <table class="plyer_1_table">
+      <tbody>
+        <tr>
+          <td><img src='https://ifh.cc/g/1DiA00.png' border='0'></td>
+        </tr>
+        <Tr>
+          <td style = text-align:center;>1번 플레이어</td>
+        </Tr>
+      </tbody>
+    </table>
+
+    <table class="plyer_2_table">
+      <tbody>
+        <tr>
+          <td><img src='https://ifh.cc/g/iuthvt.png' border='0'></td>
+        </tr>
+        <Tr>
+          <td style = text-align:center;>2번 플레이어</td>
+        </Tr>
+      </tbody>
+    </table>
+
+
+    <table class="plyer_3_table">
+      <tbody>
+        <tr>
+          <td><img src='https://ifh.cc/g/pNashg.png' border='0'></td>
+        </tr>
+        <Tr>
+          <td style = text-align:center;>3번 플레이어</td>
+        </Tr>
+      </tbody>
+    </table>
+
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
