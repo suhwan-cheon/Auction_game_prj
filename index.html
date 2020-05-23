@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <title>Auction Game</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic:wght@700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   <style>
+     .auction_game_banner{
+       font-family: "Jua";
+     }
      .header{
             width: 100%;
             display: flex;
@@ -44,6 +48,7 @@
             background-color: #EAEAEA;
     }
     .main{
+            font-family: "Nanum Gothic";
             width: 100%;
             display: flex;
             flex-direction: row;
@@ -67,6 +72,8 @@
     }
     .plyers
     {
+            font-family: "Nanum Pen Script";
+            font-size: 25px;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -178,7 +185,7 @@
     <table class="plyer_1_table">
       <tbody>
         <tr>
-          <td><img src='https://ifh.cc/g/1DiA00.png' border='0'></td>
+          <td height="180px"><div style="height:100xp"><img src='https://ifh.cc/g/1DiA00.png' witdth="200px" height="180px"></div></td>
         </tr>
         <Tr>
           <td style = text-align:center;>1번 플레이어</td>
@@ -189,19 +196,17 @@
     <table class="plyer_2_table">
       <tbody>
         <tr>
-          <td><img src='https://ifh.cc/g/iuthvt.png' border='0'></td>
+          <td height="180px"><div style="height:100xp"><img src="https://i.ibb.co/YdSRHrH/plyer-2.png" witdth="200px" height="180px"></div></td>
         </tr>
         <Tr>
           <td style = text-align:center;>2번 플레이어</td>
         </Tr>
       </tbody>
     </table>
-
-
     <table class="plyer_3_table">
       <tbody>
         <tr>
-          <td><img src='https://ifh.cc/g/pNashg.png' border='0'></td>
+          <td height="180px"><div style="height:100xp"><img src="https://i.ibb.co/3mkz1ky/plyer-3.png" width="200px" height="180px"></div></td>
         </tr>
         <Tr>
           <td style = text-align:center;>3번 플레이어</td>
@@ -222,7 +227,7 @@
     socket.emit("login", {
       // name: "ungmo2",
       name: user_name,
-      userid: 0,
+      userid: "",
       wallet: 1000000,
     });
 
@@ -242,7 +247,6 @@
         $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하지 않았습니다" + "</div>");
       }
       else $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하였습니다!" + "</div>");
-      console.log(3);
     });
 
     socket.on("start", function(data){
@@ -250,7 +254,6 @@
     });
 
     socket.on("bingo", function(data, count){
-      console.log(count);
       if(data == "1") $("#bingo" + count).append('<div style="height:100xp"><img src="https://ifh.cc/g/1DiA00.png" width="99px" height="99px" style="padding:0px"></div>');
       else if(data == "2") $("#bingo" + count).append('<div style="height:100xp"><img src="https://ifh.cc/g/iuthvt.png" width="99px" height="99px" style="padding:0px"></div>');
       else $("#bingo" + count).append('<div style="height:100xp"><img src="https://ifh.cc/g/pNashg.png" width="99px" height="99px" style="padding:0px"></div>');
