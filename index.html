@@ -159,13 +159,16 @@
     </div>
     <div class="chatbox">  <!-- class container -->
       <div id="chatLogs" style="overflow:auto; height:260px; border:1px;"></div>
-      <form class="form-inline" style="margin-top:10px;">
+      <form id="send" class="form-inline" style="margin-top:10px;">
         <div class="form-group">
           <label for="msgForm">Message: </label>
           <input type="text" class="form-control" id="msgForm">
         </div>
         <button type="submit" class="btn btn-primary">Send</button>
-      </form>
+        </form>
+        <form id="bet" class="form-inline" style="margin-top:10px;">
+          <button type="submit" class="btn btn-primary">입찰 선택</button>
+          </form>
     </div>
   </div>
   <div class="plyers">
@@ -236,19 +239,32 @@
         $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하지 않았습니다" + "</div>");
       }
       else $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하였습니다!" + "</div>");
+      console.log(3);
     });
 
     socket.on("start", function(data){
         $("#chatLogs").append("<div><strong>" + data + "</strong></div>");
     })
     // Send 버튼이 클릭되면
-    $("form").submit(function(e) {
+    $('#send').submit(function(e) {
       e.preventDefault();
       var $msgForm = $("#msgForm");
 
       // 서버로 메시지를 전송한다.
       socket.emit("chat", { msg: $msgForm.val() });
       $msgForm.val("");
+    });
+    $('#bet').submit(function(e) {
+      e.preventDefault();
+      var result = confirm("입찰하시겠습니까 ?");
+      if(result){
+        var msg = "yes";
+        socket.emit("bet", msg);
+      }
+      else{
+        var msg = "no";
+        socket.emit("bet", msg);
+      }
     });
 
   });
