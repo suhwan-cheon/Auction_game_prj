@@ -126,19 +126,19 @@
       <table class = "bingo_table">
         <tbody>
         <tr>
-          <td height="99px"><div style="height:100xp"><img src="https://ifh.cc/g/qlMq7F.webp" width="99px" height="99px" style="padding:0px"></div></td>
-          <td>2</td>
-          <td>3</td>
+          <td id="bingo1" height="99px"></td>
+          <td id="bingo2" height="99px"></td>
+          <td id="bingo3" height="99px"></td>
         </tr>
         <tr>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
+          <td id="bingo4" height="99px"></td>
+          <td id="bingo5" height="99px"></td>
+          <td id="bingo6" height="99px"></td>
         </tr>
         <tr>
-          <td>7</td>
-          <td>8</td>
-          <td>9</td>
+          <td id="bingo7" height="99px"></td>
+          <td id="bingo8" height="99px"></td>
+          <td id="bingo9" height="99px"></td>
         </tr>
         </tbody>
       </table>
@@ -147,15 +147,15 @@
       <table class="table">
         <tbody>
           <tr>
-            <td class=tr_1>
+            <td id="auction_image" class=tr_1>
               <img src='https://ifh.cc/g/SRrJcv.png' border='0'>
             </td>
           </tr>
           <tr>
-            <td class=tr_2>(경매물품)</td>
+            <td id="auction_item" class=tr_2>(경매물품)</td>
           </tr>
           <tr>
-            <td class=tr_3>현재가:(현재가) 호가:(호가)</td>
+            <td id="auction_price" class=tr_3>현재가:(현재가) 호가:(호가)</td>
           </tr>
         </tbody>
        </table>
@@ -217,12 +217,12 @@
   $(function(){
     // socket.io 서버에 접속한다
     var socket = io();
-
+    var user_name = prompt("닉네임을 설정해주세요");
     // 서버로 자신의 정보를 전송한다.
     socket.emit("login", {
       // name: "ungmo2",
-      name: "guest",
-      userid: "",
+      name: user_name,
+      userid: 0,
       wallet: 1000000,
     });
 
@@ -247,6 +247,21 @@
 
     socket.on("start", function(data){
         $("#chatLogs").append("<div><strong>" + data + "</strong></div>");
+    });
+
+    socket.on("bingo", function(data, count){
+      console.log(count);
+      if(data == "1") $("#bingo" + count).append('<div style="height:100xp"><img src="https://ifh.cc/g/1DiA00.png" width="99px" height="99px" style="padding:0px"></div>');
+      else if(data == "2") $("#bingo" + count).append('<div style="height:100xp"><img src="https://ifh.cc/g/iuthvt.png" width="99px" height="99px" style="padding:0px"></div>');
+      else $("#bingo" + count).append('<div style="height:100xp"><img src="https://ifh.cc/g/pNashg.png" width="99px" height="99px" style="padding:0px"></div>');
+    });
+
+    socket.on("bet_start", function(item_count, item){
+      $("#auction_image").html('<img src=' + "https://ifh.cc/g/1DiA00.png" + 'border="0">');
+      $("#auction_item").html(item);
+    });
+    socket.on("raise_price", function(price){
+      $("#auction_price").html(price);
     })
     // Send 버튼이 클릭되면
     $('#send').submit(function(e) {
