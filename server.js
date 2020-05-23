@@ -19,6 +19,11 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/betting', function(req, res) {
+  res.sendFile(__dirname + '/betting.html');
+});
+
+
 function start_game(){
   io.emit('start', item_count + "번째 경매 물품입니다.");
   io.emit('start', "물건 : " + item[item_count]);
@@ -74,23 +79,19 @@ io.on('connection', function(socket) {
       start_game();
     }
   });
-
-  // 클라이언트로부터의 메시지가 수신되면
-  socket.on('chat', function(data) {
-    console.log('Message from %s: %s', socket.name, data.msg);
-
+  socket.on('bet', function(data){
+    console.log('bet Message from %s: %s', socket.name, data);
     var msg = {
       from: {
         name: socket.name,
         userid: socket.userid,
         wallet: socket.wallet,
       },
-      msg: data.msg
+      msg: data
     };
-    //경매 시 chat
-    if(data.msg == "no" || data.msg == "yes"){
+    if(data == "no" || data == "yes"){
     //경매에 응한경우
-    if(data.msg != "no") {
+    if(data != "no") {
       raise_name_list.push(msg);
       raise_count++;
     }
@@ -101,7 +102,7 @@ io.on('connection', function(socket) {
       if(raise_count == 1){
         io.emit('start', raise_name_list[0].from.name + " 참여자가 낙찰받았습니다!");
         raise_name_list[0].from.wallet -= current_price;
-        raise_name_list[0].from.win_count++;
+        //raise_name_list[0].from.win_count++;
         io.emit('start', "현재 잔여 금액 : " + raise_name_list[0].from.wallet);
         next_game();
       }
@@ -112,7 +113,19 @@ io.on('connection', function(socket) {
       raise_count = 0;
     }
   }
-    else io.emit('chat', msg);
+});
+  // 클라이언트로부터의 메시지가 수신되면
+  socket.on('chat', function(data) {
+    console.log('chat Message from %s: %s', socket.name, data.msg);
+    var msg = {
+      from: {
+        name: socket.name,
+        userid: socket.userid,
+        wallet: socket.wallet,
+      },
+      msg: data.msg
+    };
+    io.emit('chat', msg);
   });
 
 // force client disconnect from server
