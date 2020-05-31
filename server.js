@@ -7,6 +7,7 @@ var user_count = 1;
 var bet_count = 0;
 var login_check = 0;
 var wallet_arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var win_arr = [0, 0, 0, 0, 0];
 var name_arr = ['', '', '', ''];
 var item = ['', '송골매 동상', '열기구', '첵스초코', '폼폼이와 재경이', '학관 GS 평생 무료', '세스나', '활주로', '학기 재수 무료 이용권', '경중선 배차시간 단축권'];
 var item_url = ['', 'https://ifh.cc/g/qKRdRt.jpg', 'https://ifh.cc/g/66oQLy.jpg', 'https://ifh.cc/g/UVCefX.jpg', 'https://ifh.cc/g/Or1eIA.jpg', 'https://ifh.cc/g/6EW2Z6.jpg', 'https://ifh.cc/g/khZh1H.jpg', 'https://ifh.cc/g/9FEcTp.jpg', 'https://ifh.cc/g/JrGblQ.jpg', 'https://ifh.cc/g/MTbfsC.jpg']
@@ -47,6 +48,7 @@ function next_game(){
 function upper_cost(){
   current_price += counting_price;
   io.emit('raise_price', current_price, counting_price);
+  io.emit('start', "호가 : " + counting_price);
   io.emit('start', "경매에 응하시겠습니까?");
 }
 function upper2_cost(){
@@ -54,6 +56,7 @@ function upper2_cost(){
   current_price += counting_price;
   counting_price += counting_price;
   io.emit('raise_price', current_price, counting_price);
+  io.emit('start', "호가 : " + counting_price);
   io.emit('start', "경매에 응하시겠습니까?");
 }
 
@@ -126,11 +129,16 @@ io.on('connection', function(socket) {
       bet_count = 0;
       if(raise_count == 1){
         io.emit('start', raise_name_list[0].from.name + " 참여자가 낙찰받았습니다!");
+        win_arr[raise_name_list[0].from.userid]++;
         io.emit('bingo', raise_name_list[0].from.userid, item_count);
         wallet_arr[raise_name_list[0].from.userid] -= current_price;
         io.emit('info', wallet_arr[1], wallet_arr[2], wallet_arr[3]);
         finish[item_count-1] = raise_name_list[0].from.name;
         if(Is_finish()) {
+          io.emit('start', raise_name_list[0].from.name + " 참여자가 승리하였습니다!");
+          reset_game();
+        }
+        else if(item_count == 9){
           io.emit('start', raise_name_list[0].from.name + " 참여자가 승리하였습니다!");
           reset_game();
         }
