@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Auction Game</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic:wght@700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Jua&family=Nanum+Gothic:wght@700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   <style>
      .auction_game_banner{
        font-family: "Jua";
@@ -20,11 +20,6 @@
             height: 100%;
             background-color: #7ebdb4;
         }
-    #grid{
-      display: grid;
-      grid-template-columns: auto 350px;
-      grid-template-rows: 1fr auto 300px 1fr;
-    }
     .bingo_table td {
       border: 1px solid #000;
       white-space: nowrap;
@@ -35,6 +30,7 @@
       height: 300px;
       white-space: nowrap;
       table-layout: fixed;
+      text-align: center;
     }
     .top-banner{
             width: 100%;
@@ -45,10 +41,11 @@
             min-width: 900px;
             margin: 0 auto;
             height: 100%;
-            background-color: #EAEAEA;
+            background-color: #cce8f4;
     }
     .main{
             font-family: "Nanum Gothic";
+            padding-top:25px;
             width: 100%;
             display: flex;
             flex-direction: row;
@@ -73,6 +70,7 @@
     .plyers
     {
             font-family: "Nanum Pen Script";
+            font-weight: bold;
             font-size: 25px;
             display: flex;
             flex-direction: row;
@@ -81,6 +79,7 @@
             margin: 0 auto;
             height: 300px;
             background-color: #FFFFFF;
+            text-align:center;
     }
     .tr_1
     {
@@ -97,19 +96,6 @@
       height:27px;
       font-size: 14px;
       text-align: center;
-    }
-    #grid .auction-item-picture{
-      grid-column: 1/2;
-      grid-row: 2/3;
-    }
-    #grid .user-state{
-      grid-column: 1/2;
-      grid-row: 3/4;
-    }
-    @media(max-width: 768px){
-      #grid{
-        display: block;
-      }
     }
   </style>
 </head>
@@ -128,34 +114,47 @@
     </div>
   </header>
   </div>
-  <div class = "main" style=padding-top:50px>
-    <div class="bingo">
+  <div class = "main">
+    <table class ="bingo_wrapup_table" style="text-align:center; font-size: 23px; font-family: 'Gugi', cursive;">
+      <tbody>
+        <tr>
+          <td>
+            <div class="bingo">
+            <div class = "bingo_name"><경매 빙고></div>
+          </td>
+       </tr>
+       <tr>
+         <td>
       <table class = "bingo_table">
         <tbody>
         <tr>
-          <td id="bingo1" height="99px"></td>
-          <td id="bingo2" height="99px"></td>
-          <td id="bingo3" height="99px"></td>
+          <td id="bingo1" height="99px">1</td>
+          <td id="bingo2" height="99px">2</td>
+          <td id="bingo3" height="99px">3</td>
         </tr>
         <tr>
-          <td id="bingo4" height="99px"></td>
-          <td id="bingo5" height="99px"></td>
-          <td id="bingo6" height="99px"></td>
+          <td id="bingo4" height="99px">4</td>
+          <td id="bingo5" height="99px">5</td>
+          <td id="bingo6" height="99px">6</td>
         </tr>
         <tr>
-          <td id="bingo7" height="99px"></td>
-          <td id="bingo8" height="99px"></td>
-          <td id="bingo9" height="99px"></td>
+          <td id="bingo7" height="99px">7</td>
+          <td id="bingo8" height="99px">8</td>
+          <td id="bingo9" height="99px">9</td>
         </tr>
         </tbody>
       </table>
+      </td>
+      </tr>
     </div>
+    </tbody>
+    </table>
     <div class="auction-item-picture">
       <table class="table">
         <tbody>
           <tr>
-            <td id="auction_image" class=tr_1>
-              <img src='https://ifh.cc/g/SRrJcv.png' border='0'>
+            <td class=tr_1>
+              <div id="auction_image" class="auction_image_main" style="height:100xp;"><img src='https://ifh.cc/g/SRrJcv.png' width="250px" height= "230px"></div>
             </td>
           </tr>
           <tr>
@@ -188,29 +187,38 @@
           <td height="180px"><div style="height:100xp"><img src='https://ifh.cc/g/1DiA00.png' witdth="200px" height="180px"></div></td>
         </tr>
         <Tr>
-          <td style = text-align:center;>1번 플레이어</td>
+          <td id="name1">1번 플레이어</td>
         </Tr>
+        <tr>
+          <td id="p1" class="payer1_current_money" style="font-family: 'Nanum Gothic', sans-serif; font-size:18px"></td>
+        </tr>
       </tbody>
     </table>
 
     <table class="plyer_2_table">
       <tbody>
         <tr>
-          <td height="180px"><div style="height:100xp"><img src="https://i.ibb.co/YdSRHrH/plyer-2.png" witdth="200px" height="180px"></div></td>
+          <td height="180px"><div style="height:100xp"><img src="https://ifh.cc/g/uGsgPs.png" witdth="200px" height="180px"></div></td>
         </tr>
         <Tr>
-          <td style = text-align:center;>2번 플레이어</td>
+          <td id="name2">2번 플레이어</td>
         </Tr>
+        <tr>
+          <td id="p2" class="payer2_current_money" style="font-family: 'Nanum Gothic', sans-serif; font-size:18px"></td>
+        </tr>
       </tbody>
     </table>
     <table class="plyer_3_table">
       <tbody>
         <tr>
-          <td height="180px"><div style="height:100xp"><img src="https://i.ibb.co/3mkz1ky/plyer-3.png" width="200px" height="180px"></div></td>
+          <td height="180px"><div style="height:100xp"><img src="https://ifh.cc/g/KBHe42.png" width="200px" height="180px"></div></td>
         </tr>
         <Tr>
-          <td style = text-align:center;>3번 플레이어</td>
+          <td id="name3">3번 플레이어</td>
         </Tr>
+        <tr>
+          <td id="p3" class="payer3_current_money" style="font-family: 'Nanum Gothic', sans-serif; font-size:18px"></td>
+        </tr>
       </tbody>
     </table>
 
@@ -227,8 +235,8 @@
     socket.emit("login", {
       // name: "ungmo2",
       name: user_name,
-      userid: "",
-      wallet: 1000000,
+      userid: 0,
+      wallet: 10000000,
     });
 
     // 서버로부터의 메시지가 수신되면
@@ -254,17 +262,35 @@
     });
 
     socket.on("bingo", function(data, count){
-      if(data == "1") $("#bingo" + count).append('<div style="height:100xp"><img src="https://ifh.cc/g/1DiA00.png" width="99px" height="99px" style="padding:0px"></div>');
-      else if(data == "2") $("#bingo" + count).append('<div style="height:100xp"><img src="https://ifh.cc/g/iuthvt.png" width="99px" height="99px" style="padding:0px"></div>');
-      else $("#bingo" + count).append('<div style="height:100xp"><img src="https://ifh.cc/g/pNashg.png" width="99px" height="99px" style="padding:0px"></div>');
+      if(data == "1") $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/1DiA00.png" style="max-width: 100%; height: auto;"></div>');
+      else if(data == "2") $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/uGsgPs.png" style="max-width: 100%; height: auto;"></div>');
+      else $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/KBHe42.png" style="max-width: 100%; height: auto;"></div>');
     });
-
-    socket.on("bet_start", function(item_count, item){
-      $("#auction_image").html('<img src=' + "https://ifh.cc/g/1DiA00.png" + 'border="0">');
-      $("#auction_item").html(item);
+    socket.on("bet_start", function(item_url, item){
+      $("#auction_image").html('<img src="' + item_url + '" width="250px" height= "230px">');
+      $("#auction_item").html("<div><strong>" + item + "</strong></div>");
     });
-    socket.on("raise_price", function(price){
-      $("#auction_price").html(price);
+    //가격 올리기
+    socket.on("raise_price", function(price, counting_price){
+      $("#auction_price").html("현재가 : " + price + "  호가 : " + counting_price);
+    })
+    //리셋
+    socket.on("reset", function(k){
+      for(var i = 1; i<10; i++){
+        $("#bingo" + i).html(i);
+      }
+    })
+    //플레이어 이름
+    socket.on("name", function(a, b, c){
+      $("#name1").html(a);
+      $("#name2").html(b);
+      $("#name3").html(c);
+    })
+    //플레이어 지갑
+    socket.on("info", function(a, b, c){
+      $("#p1").html("잔액 : " + a + "원");
+      $("#p2").html("잔액 : " + b + "원");
+      $("#p3").html("잔액 : " + c + "원");
     })
     // Send 버튼이 클릭되면
     $('#send').submit(function(e) {

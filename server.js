@@ -6,10 +6,12 @@ var io = require('socket.io')(server);
 var user_count = 1;
 var bet_count = 0;
 var login_check = 0;
-
-var item = ['', '모나리자', '페라리', '존웍의 4번째 개', '비 깡 앨범', '라모스가 쏘아올린 축구공', '아이패드', '안나의 일기', '쿠팡맨', '카트라이더 러쉬플러스'];
-var price = [0, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 8000000, 90000];
-var counting_price = 100;
+var wallet_arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var name_arr = ['', '', '', ''];
+var item = ['', '송골매 동상', '열기구', '첵스초코', '폼폼이와 재경이', '학관 GS 평생 무료', '세스나', '활주로', '학기 재수 무료 이용권', '경중선 배차시간 단축권'];
+var item_url = ['', 'https://ifh.cc/g/qKRdRt.jpg', 'https://ifh.cc/g/66oQLy.jpg', 'https://ifh.cc/g/UVCefX.jpg', 'https://ifh.cc/g/Or1eIA.jpg', 'https://ifh.cc/g/6EW2Z6.jpg', 'https://ifh.cc/g/khZh1H.jpg', 'https://ifh.cc/g/9FEcTp.jpg', 'https://ifh.cc/g/JrGblQ.jpg', 'https://ifh.cc/g/MTbfsC.jpg']
+var price = [0, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000];
+var counting_price = 100000;
 var current_price = 0;
 var item_count = 1;
 var raise_count = 0;
@@ -20,21 +22,21 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/betting', function(req, res) {
-  res.sendFile(__dirname + '/betting.html');
-});
-
-
+function reset_game(){
+  user_count = 1;
+  login_check = 0;
+  raise_name_list = [];
+  bet_count = 0;
+  item_count = 1;
+  io.emit('reset', "s");
+}
 function start_game(){
-  io.emit('bet_start', item_count, item[item_count]);
-  io.emit('raise_price', price[item_count]);
+  io.emit('bet_start', item_url[item_count], item[item_count]);
+  io.emit('raise_price', price[item_count], counting_price);
   io.emit('start', item_count + "번째 경매 물품입니다.");
-  io.emit('start', "물건 : " + item[item_count]);
-  io.emit('start', "시작가 : " + price[item_count]);
-  io.emit('start', "호가 " + counting_price + "부터 시작합니다.");
-  io.emit('start', "경매에 응하시겠습니까? (yes/no)");
+  io.emit('start', "경매에 응하시겠습니까?");
   current_price = price[item_count];
-  counting_price = current_price / 100;
+  counting_price = current_price / 10;
 }
 
 function next_game(){
@@ -44,19 +46,15 @@ function next_game(){
 }
 function upper_cost(){
   current_price += counting_price;
-  io.emit('raise_price', current_price);
-  io.emit('start', "현재가 : " + current_price);
-  io.emit('start', "호가 : " + counting_price);
-  io.emit('start', "경매에 응하시겠습니까? (yes/no)");
+  io.emit('raise_price', current_price, counting_price);
+  io.emit('start', "경매에 응하시겠습니까?");
 }
 function upper2_cost(){
   io.emit('start', "참여자 모두 입찰하여 호가를 2배 늘립니다.");
   current_price += counting_price;
   counting_price += counting_price;
-  io.emit('raise_price', current_price);
-  io.emit('start', "현재가 : " + current_price);
-  io.emit('start', "호가 : " + counting_price);
-  io.emit('start', "경매에 응하시겠습니까? (yes/no)");
+  io.emit('raise_price', current_price, counting_price);
+  io.emit('start', "경매에 응하시겠습니까?");
 }
 
 function Is_finish(){
@@ -74,6 +72,8 @@ function Is_finish(){
   //빙고 안만들어진 경우
   return false;
 }
+
+
 // connection event handler
 // connection이 수립되면 event handler function의 인자로 socket인 들어온다
 io.on('connection', function(socket) {
@@ -91,8 +91,11 @@ io.on('connection', function(socket) {
     socket.userid = data.userid;
     socket.wallet = data.wallet;
     // 접속된 모든 클라이언트에게 메시지를 전송한다
+    wallet_arr[data.userid] = data.wallet;
+    name_arr[data.userid] = data.name;
     io.emit('login', data.name );
-
+    io.emit('info', wallet_arr[1], wallet_arr[2], wallet_arr[3]);
+    io.emit('name', name_arr[1],name_arr[2],name_arr[3]);
     //3명이 다 들어왔으면 게임을 시작합니다.
     if(user_count == 4) {
       io.emit('start', "게임을 시작합니다!");
@@ -100,6 +103,7 @@ io.on('connection', function(socket) {
     }
   });
   socket.on('bet', function(data){
+
     console.log('bet Message from %s: %s', socket.name, data);
     var msg = {
       from: {
@@ -109,6 +113,7 @@ io.on('connection', function(socket) {
       },
       msg: data
     };
+    if(socket.userid < 4){
     if(data == "no" || data == "yes"){
     //경매에 응한경우
     if(data != "no") {
@@ -122,12 +127,12 @@ io.on('connection', function(socket) {
       if(raise_count == 1){
         io.emit('start', raise_name_list[0].from.name + " 참여자가 낙찰받았습니다!");
         io.emit('bingo', raise_name_list[0].from.userid, item_count);
-        raise_name_list[0].from.wallet -= current_price;
-        //raise_name_list[0].from.win_count++;
-        io.emit('start', "현재 잔여 금액 : " + raise_name_list[0].from.wallet);
+        wallet_arr[raise_name_list[0].from.userid] -= current_price;
+        io.emit('info', wallet_arr[1], wallet_arr[2], wallet_arr[3]);
         finish[item_count-1] = raise_name_list[0].from.name;
         if(Is_finish()) {
           io.emit('start', raise_name_list[0].from.name + " 참여자가 승리하였습니다!");
+          reset_game();
         }
         else next_game();
       }
@@ -138,6 +143,7 @@ io.on('connection', function(socket) {
       raise_count = 0;
     }
   }
+}
 });
   // 클라이언트로부터의 메시지가 수신되면
   socket.on('chat', function(data) {

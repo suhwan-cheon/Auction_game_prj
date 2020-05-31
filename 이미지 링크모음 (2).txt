@@ -1,0 +1,26 @@
+  
+컴네 이미지 링크 모음
+
+===기본 이미지===
+손든 남자 : <img src='https://ifh.cc/g/RXaWDJ.webp' border='0'>
+손든 여자 : <img src='https://ifh.cc/g/qlMq7F.webp' border='0'>
+경매봉 : <img src='https://ifh.cc/g/SRrJcv.png' border='0'>
+플레이어1 : <img src='https://ifh.cc/g/1DiA00.png' border='0'>
+플레이어2 : <img src='https://ifh.cc/g/uGsgPs.png' border='0'>
+플레이어3 : <img src='https://ifh.cc/g/KBHe42.png' border='0'>
+
+==빙고판 이미지===
+플레이어1:<img src='https://ifh.cc/g/1DiA00.png'  style="max-width: 100%; height: auto;">
+플레이어2:<img src='https://ifh.cc/g/uGsgPs.png'  style="max-width: 100%; height: auto;">
+플레이어3:<img src='https://ifh.cc/g/KBHe42.png'  style="max-width: 100%; height: auto;">
+
+===경매물품===
+송골매:<img src='https://ifh.cc/g/qKRdRt.jpg' width="250px" height= "230px">
+열기구:<img src='https://ifh.cc/g/66oQLy.jpg' width="250px" height= "230px">
+첵스초코:<img src='https://ifh.cc/g/UVCefX.jpg' width="250px" height= "230px">
+폼폼:<img src='https://ifh.cc/g/Or1eIA.jpg' width="250px" height= "230px">
+학관gs:<img src='https://ifh.cc/g/6EW2Z6.jpg' width="250px" height= "230px">
+세스나:<img src='https://ifh.cc/g/khZh1H.jpg' width="250px" height= "230px">
+활주로:<img src='https://ifh.cc/g/9FEcTp.jpg' width="250px" height= "230px">
+학기재수:<img src='https://ifh.cc/g/JrGblQ.jpg' width="250px" height= "230px">
+경중선:<img src='https://ifh.cc/g/MTbfsC.jpg' width="250px" height= "230px">
