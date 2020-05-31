@@ -27,6 +27,10 @@ function reset_game(){
   user_count = 1;
   login_check = 0;
   raise_name_list = [];
+  wallet_arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  win_arr = [0, 0, 0, 0, 0];
+  name_arr = ['', '', '', ''];
+  finish = ['a', 'b', 'c', 'd', 'e', 'f', 'g','h', 'i'];
   bet_count = 0;
   item_count = 1;
   io.emit('reset', "s");
