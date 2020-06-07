@@ -166,17 +166,30 @@
         </tbody>
        </table>
     </div>
+<<<<<<< HEAD
+    <div class="chatbox" style="word-break: break-all;">  <!-- class container -->
+      <div id="chatLogs" style="overflow:auto; height:260px; border:1px; width: 300px"></div>
+      <form id="send" class="form-inline" style="margin-top:10px;">
+        <div class="form-group">
+          <label for="msgForm">Message: </label>
+          <input type="text" class="form-control" id="msgForm"  >
+=======
     <div class="chatbox">  <!-- class container -->
       <div id="chatLogs" style="overflow:auto; height:260px; border:1px;"></div>
       <form id="send" class="form-inline" style="margin-top:10px;">
         <div class="form-group">
           <label for="msgForm">Message: </label>
           <input type="text" class="form-control" id="msgForm">
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
         </div>
         <button type="submit" class="btn btn-primary">Send</button>
         </form>
         <form id="bet" class="form-inline" style="margin-top:10px;">
+<<<<<<< HEAD
+          <button id="make_choice"type="submit" class="btn btn-primary">입찰 선택</button>
+=======
           <button type="submit" class="btn btn-primary">입찰 선택</button>
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
           </form>
     </div>
   </div>
@@ -184,7 +197,11 @@
     <table class="plyer_1_table">
       <tbody>
         <tr>
+<<<<<<< HEAD
+          <td height="180px"><div style="height:100xp"><img src='https://ifh.cc/g/SMulTK.png' witdth="200px" height="180px"></div></td>
+=======
           <td height="180px"><div style="height:100xp"><img src='https://ifh.cc/g/1DiA00.png' witdth="200px" height="180px"></div></td>
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
         </tr>
         <Tr>
           <td id="name1">1번 플레이어</td>
@@ -198,7 +215,11 @@
     <table class="plyer_2_table">
       <tbody>
         <tr>
+<<<<<<< HEAD
+          <td height="180px"><div style="height:100xp"><img src='https://ifh.cc/g/mUSVke.png' witdth="200px" height="180px"></div></td>
+=======
           <td height="180px"><div style="height:100xp"><img src="https://ifh.cc/g/uGsgPs.png" witdth="200px" height="180px"></div></td>
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
         </tr>
         <Tr>
           <td id="name2">2번 플레이어</td>
@@ -211,7 +232,11 @@
     <table class="plyer_3_table">
       <tbody>
         <tr>
+<<<<<<< HEAD
+          <td height="180px"><div style="height:100xp"><img src='https://ifh.cc/g/WlF0lh.png' witdth="200px" height="180px"></div></td>
+=======
           <td height="180px"><div style="height:100xp"><img src="https://ifh.cc/g/KBHe42.png" width="200px" height="180px"></div></td>
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
         </tr>
         <Tr>
           <td id="name3">3번 플레이어</td>
@@ -225,6 +250,10 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
   <script>
 
   $(function(){
@@ -238,7 +267,11 @@
       userid: 0,
       wallet: 10000000,
     });
+<<<<<<< HEAD
+    var objDiv = document.getElementById("chatLogs");
+=======
 
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
     // 서버로부터의 메시지가 수신되면
     socket.on("login", function(data) {
       $("#chatLogs").append("<div><strong>" + data + "</strong> 님이 입장하셨습니다.</div>");
@@ -248,11 +281,33 @@
     // 서버로부터의 메시지가 수신되면
     socket.on("chat", function(data) {
       $("#chatLogs").append("<div><strong>" + data.from.name + " : </strong>" + data.msg + "</div>");
+<<<<<<< HEAD
+      objDiv.scrollTop = objDiv.scrollHeight;
+=======
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
     });
 
     socket.on("betting", function(data){
       if(data.msg == "no"){
         $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하지 않았습니다" + "</div>");
+<<<<<<< HEAD
+        objDiv.scrollTop = objDiv.scrollHeight;
+      }
+      else $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하였습니다!" + "</div>");
+      objDiv.scrollTop = objDiv.scrollHeight;
+    });
+
+    socket.on("start", function(data){
+        $('#make_choice').show();
+        $("#chatLogs").append("<div><strong>" + data + "</strong></div>");
+        objDiv.scrollTop = objDiv.scrollHeight;
+    });
+
+    socket.on("bingo", function(data, count){
+      if(data == "1") $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/SMulTK.png" style="max-width: 100%; height: auto;"></div>');
+      else if(data == "2") $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/mUSVke.png" style="max-width: 100%; height: auto;"></div>');
+      else $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/WlF0lh.png" style="max-width: 100%; height: auto;"></div>');
+=======
       }
       else $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하였습니다!" + "</div>");
     });
@@ -265,6 +320,7 @@
       if(data == "1") $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/1DiA00.png" style="max-width: 100%; height: auto;"></div>');
       else if(data == "2") $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/uGsgPs.png" style="max-width: 100%; height: auto;"></div>');
       else $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/KBHe42.png" style="max-width: 100%; height: auto;"></div>');
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
     });
     socket.on("bet_start", function(item_url, item){
       $("#auction_image").html('<img src="' + item_url + '" width="250px" height= "230px">');
@@ -275,10 +331,18 @@
       $("#auction_price").html("현재가 : " + price + "  호가 : " + counting_price);
     })
     //리셋
+<<<<<<< HEAD
+    socket.on("reset", function(k, price, counting_price){
+      for(var i = 1; i<10; i++){
+        $("#bingo" + i).html(i);
+      }
+      $("#auction_price").html("현재가 : " + price + "  호가 : " + counting_price);
+=======
     socket.on("reset", function(k){
       for(var i = 1; i<10; i++){
         $("#bingo" + i).html(i);
       }
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
     })
     //플레이어 이름
     socket.on("name", function(a, b, c){
@@ -297,6 +361,21 @@
       e.preventDefault();
       var $msgForm = $("#msgForm");
 
+<<<<<<< HEAD
+    // 서버로 메시지를 전송한다.
+    socket.emit("chat", { msg: $msgForm.val() });
+      $msgForm.val("");
+    });
+
+    $('#bet').submit(function(e) {
+      e.preventDefault();
+      var result = confirm("입찰하시겠습니까 ?");
+
+      if(result){
+        var msg = "yes";
+        socket.emit("bet", msg);
+        $('#make_choice').hide();
+=======
       // 서버로 메시지를 전송한다.
       socket.emit("chat", { msg: $msgForm.val() });
       $msgForm.val("");
@@ -307,13 +386,20 @@
       if(result){
         var msg = "yes";
         socket.emit("bet", msg);
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
       }
       else{
         var msg = "no";
         socket.emit("bet", msg);
+<<<<<<< HEAD
+        $('#make_choice').hide();
+      }
+    });
+=======
       }
     });
 
+>>>>>>> 0ae4a4d173e4e5a6a57d37ec9122b6fc7ace1687
   });
   </script>
 </body>
